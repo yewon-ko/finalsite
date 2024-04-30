@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자원봉사 찾기</title>
+    <!-- 부트스트랩 CSS 추가 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .title{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid bg-success text-center py-5">
+        <h1 class="display-4 text-black">자원봉사 찾기</h1>
+        <p class="lead text-black">누구나 쉽게 자원봉사 찾기</p>
+    </div>
+    
+    <!-- 로그인 폼 추가 -->
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-4">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">아이디:</label>
+                        <input type="text" class="form-control" id="username" placeholder="아이디를 입력하세요">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">비밀번호:</label>
+                        <input type="password" class="form-control" id="password" placeholder="비밀번호를 입력하세요">
+                    </div>
+                    <div class="form-group">
+                        <label for="type">로그인 유형:</label>
+                        <select class="form-control" id="type">
+                            <option value="individual">개인</option>
+                            <option value="organization">단체</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">로그인</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 부트스트랩 JS 및 jQuery 추가 (선택 사항) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#loginForm').submit(function(event) {
+                event.preventDefault(); // 기본 동작 방지
+
+                // 입력된 아이디와 비밀번호 가져오기
+                var username = $('#username').val();
+                var password = $('#password').val();
+                var type = $('#type').val(); // 선택된 로그인 유형 가져오기
+
+                // 아이디와 비밀번호가 일치하는지 확인하고 유형에 따라 다른 페이지로 이동
+                if (type === "individual") {
+                    if (username === "1234" && password === "1234") {
+                        // 개인 로그인 성공 시 개인 페이지로 이동
+                        window.location.href = "https://yewon-ko.github.io/perrrrrr/";
+                    } else {
+                        alert("아이디 또는 비밀번호가 잘못되었습니다. 다시 시도해주세요.");
+                    }
+                } else if (type === "organization") {
+                    if (username === "1234" && password === "1234") {
+                        // 단체 로그인 성공 시 단체 페이지로 이동
+                        window.location.href = "https://yewon-ko.github.io/com/";
+                    } else {
+                        alert("아이디 또는 비밀번호가 잘못되었습니다. 다시 시도해주세요.");
+                    }
+                }
+            });
+        });
+    </script>
+   
+</body>
+</html>
